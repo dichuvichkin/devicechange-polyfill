@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Example - devicechange-polyfill</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2em;
+        }
+        #log {
+            margin-top: 1em;
+            border: 1px solid #ddd;
+            padding: 1em;
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+<h1>Advanced Example: devicechange-polyfill</h1>
+<p>This advanced example demonstrates custom polling intervals, adding/removing event listeners, and stopping polling.</p>
+<div id="log"></div>
+
+<!-- Load the polyfill from the dist folder. Adjust the path as needed. -->
+<script src="../dist/devicechange-polyfill.js"></script>
+
+<script>
+    // Helper function to log messages to the page and console.
+    function logMessage(message) {
+        const logDiv = document.getElementById('log');
+        const p = document.createElement('p');
+        p.textContent = message;
+        logDiv.appendChild(p);
+        console.log(message);
+    }
+
+    // Set a custom polling interval of 2000ms.
+    navigator.mediaDevices.setPollingInterval(2000);
+    logMessage('Custom polling interval set to 2000ms.');
+
+    // Define an advanced devicechange event handler.
+    function advancedDeviceChangeHandler() {
+        logMessage('Advanced listener: Device change detected at ' + new Date().toLocaleTimeString());
+    }
+
+    // Add the event listener for device changes.
+    navigator.mediaDevices.addEventListener('devicechange', advancedDeviceChangeHandler);
+    logMessage('Advanced devicechange event listener added.');
+
+    // Simulate a device change event after 5 seconds.
+    setTimeout(() => {
+        logMessage('Simulating advanced device change...');
+        if (navigator.mediaDevices.ondevicechange) {
+            navigator.mediaDevices.ondevicechange();
+        }
+    }, 5000);
+</script>
+</body>
+</html>

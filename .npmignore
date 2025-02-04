@@ -1,0 +1,21 @@
+# Ignore everything except the necessary files
+src/
+tests/
+.github/
+examples/
+.vscode/
+.idea/
+coverage/
+
+# Ignore config files
+babel.config.cjs
+rollup.config.js
+jest.config.js
+.eslintrc.cjs
+
+# Ignore Git-related files
+.git/
+.gitignore
+
+# Ignore development files
+*.md

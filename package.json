@@ -1,0 +1,56 @@
+{
+    "name": "devicechange-polyfill",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Polyfill for navigator.mediaDevices.ondevicechange to detect Bluetooth headsets on Android Chrome.",
+    "main": "dist/devicechange-polyfill.cjs",
+    "module": "dist/devicechange-polyfill.js",
+    "exports": {
+        "import": "./dist/devicechange-polyfill.js",
+        "require": "./dist/devicechange-polyfill.cjs",
+        "default": "./dist/devicechange-polyfill.js"
+    },
+    "scripts": {
+        "build": "rollup -c",
+        "test": "jest",
+        "lint": "eslint src/",
+        "prepublish": "npm run build && npm test"
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dichuvichkin/devicechange-polyfill.git"
+    },
+    "bugs": {
+        "url": "https://github.com/dichuvichkin/devicechange-polyfill/issues"
+    },
+    "homepage": "https://github.com/dichuvichkin/devicechange-polyfill#readme",
+    "keywords": [
+        "mediaDevices",
+        "devicechange",
+        "polyfill",
+        "bluetooth",
+        "webRTC",
+        "webaudio",
+        "browser"
+    ],
+    "author": "Dmitrii Chuvichkin",
+    "license": "MIT",
+    "engines": {
+        "node": ">=14"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.26.7",
+        "@babel/preset-env": "^7.26.7",
+        "@rollup/plugin-terser": "^0.4.4",
+        "babel-jest": "^29.7.0",
+        "eslint": "^8.0.0",
+        "jest": "^29.0.0",
+        "jest-environment-jsdom": "^29.7.0",
+        "rollup": "^3.0.0"
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Example - devicechange-polyfill</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 1em;
+        }
+        #status {
+            margin-top: 1em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h1>Basic Example: devicechange-polyfill</h1>
+<p>This example demonstrates a basic usage of the polyfill. Open your browser console to see device change events.</p>
+<!-- Load the polyfill script. Adjust the path if necessary -->
+<script src="../dist/devicechange-polyfill.js"></script>
+<script>
+    // Set a simple devicechange handler
+    navigator.mediaDevices.ondevicechange = function() {
+        console.log('Device change detected!');
+        document.getElementById('status').textContent = 'Device change detected at ' + new Date().toLocaleTimeString();
+    };
+
+    // For demonstration purposes, simulate a device change event after 3 seconds.
+    setTimeout(function(){
+        console.log('Simulating device change...');
+        // Manually trigger the devicechange event handler.
+        if (navigator.mediaDevices.ondevicechange) {
+            navigator.mediaDevices.ondevicechange();
+        }
+    }, 3000);
+</script>
+<p id="status">Waiting for device change...</p>
+</body>
+</html>
