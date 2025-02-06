@@ -1,6 +1,6 @@
 {
     "name": "devicechange-polyfill",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "module",
     "description": "Polyfill for navigator.mediaDevices.ondevicechange to detect Bluetooth headsets on Android Chrome.",
     "main": "dist/devicechange-polyfill.cjs",
